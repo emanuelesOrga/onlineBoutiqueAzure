@@ -25,7 +25,7 @@ $config = $ArmTemplateParameters.parameters.config.value
 #region Curate Variables
 $SubscriptionId = $spn.subscriptionId
 $ResourceGroupName = "ai-autoscaler"# $config.project + '-' + $config.env + '-' + 'aks' + '-' + $config.region + $config.num + $Build_Uid
-$AksClusterName = $config.project + $config.env + $config.region + $config.num + '-' + 'aks' + $Build_Uid
+$AksClusterName = "autoScalerAKS"# $config.project + $config.env + $config.region + $config.num + '-' + 'aks' + $Build_Uid
 $logAnalyticsWorkspaceName = $config.project + $config.env + $config.region + $config.num + '-' + 'oms' + $Build_Uid
 $Location = $ArmTemplateParameters.parameters.location.value
 #endregion
