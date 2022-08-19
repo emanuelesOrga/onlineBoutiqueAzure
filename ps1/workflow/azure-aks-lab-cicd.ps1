@@ -24,7 +24,7 @@ $config = $ArmTemplateParameters.parameters.config.value
 
 #region Curate Variables
 $SubscriptionId = $spn.subscriptionId
-$ResourceGroupName = $config.project + '-' + $config.env + '-' + 'aks' + '-' + $config.region + $config.num + $Build_Uid
+$ResourceGroupName = "ai-autoscaler"# $config.project + '-' + $config.env + '-' + 'aks' + '-' + $config.region + $config.num + $Build_Uid
 $AksClusterName = $config.project + $config.env + $config.region + $config.num + '-' + 'aks' + $Build_Uid
 $logAnalyticsWorkspaceName = $config.project + $config.env + $config.region + $config.num + '-' + 'oms' + $Build_Uid
 $Location = $ArmTemplateParameters.parameters.location.value
@@ -32,6 +32,8 @@ $Location = $ArmTemplateParameters.parameters.location.value
 
 #region Connect To Azure if Not connected Already
 $CurrentContext = Get-AzContext
+Write-Output "Get Azure Connection"
+Write-Output $CurrentContext
 
 if ((!$CurrentContext) -or ($CurrentContext.Subscription.Id -ne $SubscriptionId)) {
     [string]$clientId = $spn.clientId
