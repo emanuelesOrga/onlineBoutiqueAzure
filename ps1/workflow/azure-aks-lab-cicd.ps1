@@ -42,7 +42,9 @@ $CurrentContext = Get-AzContext
 Write-Output "Get Azure Connection"
 Write-Output $CurrentContext
 
+Write-Output "write subscriptionId"
 Write-Output $SubscriptionId
+Write-Output "write ResourceGroupName"
 Write-Output $ResourceGroupName
 Write-Output $AksClusterName
 Write-Output $logAnalyticsWorkspaceName
