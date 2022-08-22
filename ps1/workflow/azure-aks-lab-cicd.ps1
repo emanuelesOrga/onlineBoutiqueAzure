@@ -48,6 +48,8 @@ if ((!$CurrentContext) -or ($CurrentContext.Subscription.Id -ne $SubscriptionId)
 }
 #endregion
 
+Write-Output "updated script in use"
+
 if ($DeployInfra) {
     #Create/Update the resource Group
     New-AzResourceGroup -ResourceGroupName $ResourceGroupName -Location $Location -Force | out-null
