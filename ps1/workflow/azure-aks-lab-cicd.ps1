@@ -24,31 +24,17 @@ $config = $ArmTemplateParameters.parameters.config.value
 
 #region Curate Variables
 $SubscriptionId = $spn.subscriptionId
-$ResourceGroupName = "ai-autoscaler"# $config.project + '-' + $config.env + '-' + 'aks' + '-' + $config.region + $config.num + $Build_Uid
-$AksClusterName = "autoScalerAKS"# $config.project + $config.env + $config.region + $config.num + '-' + 'aks' + $Build_Uid
+$ResourceGroupName = $config.project + '-' + $config.env + '-' + 'aks' + '-' + $config.region + $config.num + $Build_Uid
+$AksClusterName = $config.project + $config.env + $config.region + $config.num + '-' + 'aks' + $Build_Uid
 $logAnalyticsWorkspaceName = $config.project + $config.env + $config.region + $config.num + '-' + 'oms' + $Build_Uid
 $Location = $ArmTemplateParameters.parameters.location.value
 #endregion
-
-Write-Output $SubscriptionId
-Write-Output $ResourceGroupName
-Write-Output $AksClusterName
-Write-Output $logAnalyticsWorkspaceName
-Write-Output $Location
 
 
 #region Connect To Azure if Not connected Already
 $CurrentContext = Get-AzContext
 Write-Output "Get Azure Connection"
 Write-Output $CurrentContext
-
-Write-Output "write subscriptionId"
-Write-Output $SubscriptionId
-Write-Output "write ResourceGroupName"
-Write-Output $ResourceGroupName
-Write-Output $AksClusterName
-Write-Output $logAnalyticsWorkspaceName
-Write-Output $Location
 
 
 if ((!$CurrentContext) -or ($CurrentContext.Subscription.Id -ne $SubscriptionId)) {
@@ -76,14 +62,6 @@ if ($DeployInfra) {
 
     Write-Output "Start ARM Deployment"
     $AzDeployment = New-AzResourceGroupDeployment @Args
-
-    Write-Output "write subscriptionId"
-    Write-Output $SubscriptionId
-    Write-Output "write ResourceGroupName"
-    Write-Output $ResourceGroupName
-    Write-Output $AksClusterName
-    Write-Output $logAnalyticsWorkspaceName
-    Write-Output $Location
 
     #Update Resource Names with Deployment Outputs In case They are Different/Randomized
     $AksClusterName = $AzDeployment.Outputs.aksClusterName.value
