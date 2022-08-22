@@ -32,8 +32,8 @@ $Location = $ArmTemplateParameters.parameters.location.value
 
 
 #region Connect To Azure if Not connected Already
-$CurrentContext = Get-AzContext
 Write-Output "Get Azure Connection"
+$CurrentContext = Get-AzContext
 Write-Output $CurrentContext
 
 
