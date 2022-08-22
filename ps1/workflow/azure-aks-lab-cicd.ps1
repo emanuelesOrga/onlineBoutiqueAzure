@@ -42,6 +42,13 @@ $CurrentContext = Get-AzContext
 Write-Output "Get Azure Connection"
 Write-Output $CurrentContext
 
+Write-Output $SubscriptionId
+Write-Output $ResourceGroupName
+Write-Output $AksClusterName
+Write-Output $logAnalyticsWorkspaceName
+Write-Output $Location
+
+
 if ((!$CurrentContext) -or ($CurrentContext.Subscription.Id -ne $SubscriptionId)) {
     [string]$clientId = $spn.clientId
     [string]$clientSecret = $spn.clientSecret
