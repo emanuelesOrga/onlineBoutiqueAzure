@@ -30,6 +30,13 @@ $logAnalyticsWorkspaceName = $config.project + $config.env + $config.region + $c
 $Location = $ArmTemplateParameters.parameters.location.value
 #endregion
 
+Write-Output $SubscriptionId
+Write-Output $ResourceGroupName
+Write-Output $AksClusterName
+Write-Output $logAnalyticsWorkspaceName
+Write-Output $Location
+
+
 #region Connect To Azure if Not connected Already
 $CurrentContext = Get-AzContext
 Write-Output "Get Azure Connection"
