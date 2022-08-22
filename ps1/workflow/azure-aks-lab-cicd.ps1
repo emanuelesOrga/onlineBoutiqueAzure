@@ -77,6 +77,14 @@ if ($DeployInfra) {
     Write-Output "Start ARM Deployment"
     $AzDeployment = New-AzResourceGroupDeployment @Args
 
+    Write-Output "write subscriptionId"
+    Write-Output $SubscriptionId
+    Write-Output "write ResourceGroupName"
+    Write-Output $ResourceGroupName
+    Write-Output $AksClusterName
+    Write-Output $logAnalyticsWorkspaceName
+    Write-Output $Location
+
     #Update Resource Names with Deployment Outputs In case They are Different/Randomized
     $AksClusterName = $AzDeployment.Outputs.aksClusterName.value
     $logAnalyticsWorkspaceName = $AzDeployment.Outputs.logAnalyticsWorkspaceName.value
