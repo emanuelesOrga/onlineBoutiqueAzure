@@ -48,7 +48,7 @@ if ((!$CurrentContext) -or ($CurrentContext.Subscription.Id -ne $SubscriptionId)
 }
 #endregion
 
-Write-Output "updated script in use"
+Write-Output "updated 2.0 script in use"
 
 if ($DeployInfra) {
     #Create/Update the resource Group
