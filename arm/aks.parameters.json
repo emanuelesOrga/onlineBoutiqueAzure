@@ -4,14 +4,14 @@
     "parameters": {
         "config": {
             "value": {
-                "project": "mert",
+                "project": "ai-scaler",
                 "env": "lab",
-                "region": "aue",
+                "region": "euwest",
                 "num": "01"
             }
         },
         "location": {
-            "value": "Australia East"
+            "value": "West Europe"
         },
         "osDiskSizeGB": {
             "value": 0
